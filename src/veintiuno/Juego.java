@@ -101,8 +101,9 @@ public class Juego implements Iterable<Jugador> {
 
   /**
    * Método que ordena a los jugadores antes de comenzar la partida.
+   * @throws MonedasNegativasException 
    */
-  public void ordenJugadores() {
+  public void ordenJugadores() throws MonedasNegativasException {
     jugadoresOrdenados.clear();
     for (Jugador jugador: jugadores) {
       jugador.borrarPuntuaciones();

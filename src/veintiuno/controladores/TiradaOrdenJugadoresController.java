@@ -13,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import veintiuno.Juego;
 import veintiuno.Jugador;
+import veintiuno.MonedasNegativasException;
 
 public class TiradaOrdenJugadoresController {
   
@@ -27,7 +28,7 @@ public class TiradaOrdenJugadoresController {
   private VBox contenido;
   
   @FXML
-  void lanzarDados(ActionEvent event) {
+  void lanzarDados(ActionEvent event) throws MonedasNegativasException {
     juego21.ordenJugadores();
     int contador = 0;
     for (Jugador jugador : juego21) {

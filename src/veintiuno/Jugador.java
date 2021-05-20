@@ -125,10 +125,9 @@ public class Jugador {
     victorias ++;
   }
   
-  public void borrarPuntuaciones() throws MonedasNegativasException {
+  public void borrarPuntuaciones() {
     setPuntuacionRonda(0);
     setPuntuacionDados(0);
-    setMonedas(100);
   }
   
   public void apostar(int apuesta) throws MonedasNegativasException, ApuestaNegativaException {
