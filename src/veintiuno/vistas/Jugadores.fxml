@@ -23,7 +23,7 @@
                   <Font name="Berlin Sans FB" size="20.0" />
                </font>
             </TextField>
-            <Button mnemonicParsing="false" onAction="#añadir" style="-fx-background-color: #85E3FF;" text="Añadir">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#añadir" style="-fx-background-color: #85E3FF;" text="Añadir">
                <font>
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>

@@ -37,7 +37,7 @@
          </font>
       </Label>
       <ImageView fx:id="imagMonedas" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <Button mnemonicParsing="false" onAction="#continuar" style="-fx-background-color: #E7FFAC;" text="Continuar">
+      <Button defaultButton="true" mnemonicParsing="false" onAction="#continuar" style="-fx-background-color: #E7FFAC;" text="Continuar">
          <font>
             <Font name="Berlin Sans FB" size="18.0" />
          </font>

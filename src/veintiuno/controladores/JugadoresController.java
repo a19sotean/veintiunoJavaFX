@@ -43,6 +43,15 @@ public class JugadoresController {
           ponerNombre.setFont(new Font("Berlin Sans FB", 14));
           nombres.add(ponerNombre);
           contenido.getChildren().add(ponerNombre);
+          /*
+          String nombreJugador = String.valueOf(ponerNombre.getText());
+          
+          if (nombreJugador == "") {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("El nombre de un jugador no puede ser nulo.");
+            alert.showAndWait();
+          }*/
         }
       }
 
@@ -59,7 +68,7 @@ public class JugadoresController {
       alert.setContentText("No has introducido un número.");
       alert.showAndWait();
       numJugadores.setText("");
-    }
+    } 
   }
 
   @FXML

@@ -16,7 +16,7 @@
             <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
          </VBox.margin>
       </Label>
-      <Button maxWidth="150.0" mnemonicParsing="false" onAction="#lanzarDados" style="-fx-background-color: #AFCBFF;" text="Asignar orden">
+      <Button defaultButton="true" maxWidth="150.0" mnemonicParsing="false" onAction="#lanzarDados" style="-fx-background-color: #AFCBFF;" text="Asignar orden">
          <font>
             <Font name="Berlin Sans FB" size="18.0" />
          </font>
