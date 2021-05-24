@@ -30,13 +30,13 @@ public class TurnosJugadoresController {
 
   @FXML
   private TextField puntosAcumulados;
-  
+
   public TurnosJugadoresController(Juego juego21, Iterator<Jugador> jugadores) {
     this.juego21 = juego21;
     this.jugadores = jugadores;
     this.jugadorActual = jugadores.next();
   }
-  
+
   @FXML
   public void initialize() {
     jugador.setText(jugadorActual.getNombre());
@@ -51,7 +51,7 @@ public class TurnosJugadoresController {
     }
     resultado.setText(jugadorActual.getPuntuacionDados() + "");
     puntosAcumulados.setText(jugadorActual.getPuntuacionRonda() + "");
-    
+
     if (jugadorActual.getPuntuacionRonda() > 21) {
       Alert alert = new Alert(AlertType.INFORMATION);
       alert.setTitle("Has perdido");
@@ -59,7 +59,32 @@ public class TurnosJugadoresController {
       Optional<ButtonType> confirmar = alert.showAndWait();
       if (confirmar.get() == ButtonType.OK) {
         dejarDeTirar(event);
+      } 
+      
+    } else if (jugadorActual.getPuntuacionRonda() == 21) {
+      Alert alert2 = new Alert(AlertType.INFORMATION);
+      alert2.setTitle("Has ganado");
+      alert2.setContentText("Tus puntos son igual a 21 por lo tanto, has ganado. Los demás jugadores dejarán de tirar.");
+      Optional<ButtonType> confirmar2 = alert2.showAndWait();
+      if (confirmar2.get() == ButtonType.OK) {
+        hayGanador(event);
       }
+    }
+  }
+
+  public void hayGanador(ActionEvent event) {
+    try {
+      Node node = (Node) event.getSource();
+      Stage stage = (Stage) node.getScene().getWindow();
+      FXMLLoader fxml;
+      fxml = new FXMLLoader(this.getClass().getResource("/veintiuno/vistas/Ganador.fxml"));
+      fxml.setController(new GanadorController(juego21));
+      VBox root = fxml.<VBox>load();
+      Scene scene = new Scene(root);
+      stage.setScene(scene);
+      
+    } catch (Exception e) {
+      System.err.println("Error al cargar el archivo. " + e.getMessage());
     }
   }
 
@@ -69,7 +94,7 @@ public class TurnosJugadoresController {
       Node node = (Node) event.getSource();
       Stage stage = (Stage) node.getScene().getWindow();
       FXMLLoader fxml;
-      
+
       if (jugadores.hasNext()) {
         fxml = new FXMLLoader(this.getClass().getResource("/veintiuno/vistas/TurnosJugadores.fxml"));
         fxml.setController(new TurnosJugadoresController(juego21, jugadores));
@@ -77,14 +102,14 @@ public class TurnosJugadoresController {
         fxml = new FXMLLoader(this.getClass().getResource("/veintiuno/vistas/Ganador.fxml"));
         fxml.setController(new GanadorController(juego21));
       }
-      
+
       VBox root = fxml.<VBox>load();
       Scene scene = new Scene(root);
       stage.setScene(scene);
-      
-      } catch (Exception e) {
-        System.err.println("Error al cargar el archivo. " + e.getMessage());
-      }
+
+    } catch (Exception e) {
+      System.err.println("Error al cargar el archivo. " + e.getMessage());
+    }
   }
 
 }
